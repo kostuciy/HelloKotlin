@@ -6,8 +6,8 @@ class MainKtTest {
 
     @Test
     fun minutesToText() {
-//        assertEquals("1 минуту назад", minutesToText(1))
-        assertEquals("230230 минуту назад", minutesToText(1))
+        assertEquals("1 минуту назад", minutesToText(1))
+//        assertEquals("230230 минуту назад", minutesToText(1))
         assertEquals("21 минуту назад", minutesToText(21))
         assertEquals("11 минут назад", minutesToText(11))
         assertEquals("12 минут назад", minutesToText(12))
