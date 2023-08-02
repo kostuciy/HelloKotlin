@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.7.10"
     application
+    id("jacoco")
 }
 
 group = "org.example"
@@ -13,7 +14,9 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+//    testImplementation(kotlin("test"))
+    testImplementation("junit:junit:4.13.2")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.9.2")
 }
 
 tasks.test {
