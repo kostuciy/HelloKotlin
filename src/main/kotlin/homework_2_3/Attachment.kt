@@ -1,7 +1,5 @@
 package homework_2_3
 
-import java.util.stream.IntStream.IntMapMultiConsumer
-
 interface Attachment {
     val type: AttachmentType
     val id: Int
@@ -77,7 +75,7 @@ class GiftAttachment(
     val thumb96: String = "",
     val thumb48: String = "",
 ) : Attachment {
-    override val type = AttachmentType.FILE
+    override val type = AttachmentType.GIFT
 }
 
 
