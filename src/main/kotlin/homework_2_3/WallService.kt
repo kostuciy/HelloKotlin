@@ -1,4 +1,4 @@
-package homework_2_2
+package homework_2_3
 
 object WallService {
     private val postList = mutableListOf<Post>()
@@ -6,10 +6,11 @@ object WallService {
     fun getPosts(): List<Post> = postList
 
     fun add(post: Post): Post {
-        giveId(post)
-        postList += post
+        val id = getId(post)
+        val newPost = post.copy(id = id)
+        postList += newPost
 
-        return post
+        return newPost
     }
 
     fun update(updatedPost: Post): Boolean {
@@ -26,7 +27,7 @@ object WallService {
         postList.clear()
     }
 
-    private fun giveId(post: Post) {
+    private fun getId(post: Post): Int {
         var id: Int = post.hashCode()
 
         var isNotUnique = true
@@ -36,6 +37,6 @@ object WallService {
             } else id += (1..10).random()
         }
 
-        post.id = id
+        return id
     }
 }

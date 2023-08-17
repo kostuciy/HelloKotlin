@@ -1,4 +1,4 @@
-package homework_2_2
+package homework_2_3
 
 data class Comment(
     val count: Int = 0, // default values set for easier tests
