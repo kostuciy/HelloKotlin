@@ -1,8 +1,8 @@
 package homework_2_3
 
-sealed class Attachment {
-    abstract val type: AttachmentType
-    abstract val id: Int
+interface Attachment {
+    val type: AttachmentType
+    val id: Int
 }
 
 enum class AttachmentType {
@@ -21,7 +21,7 @@ class PhotoAttachment(
     val sizes: Array<Size>? = null,
     val width: Int = 1920,
     val height: Int = 1080
-    ) : Attachment() {
+    ) : Attachment {
     override val type = AttachmentType.PHOTO
 }
 
@@ -38,7 +38,7 @@ class AudioAttachment(
     val date: Int = 0,
     val noSearch: Boolean = false,
     val isHq: Boolean = false
-) : Attachment() {
+) : Attachment {
     override val type = AttachmentType.AUDIO
 }
 
@@ -54,7 +54,7 @@ class VideoAttachment(
     val imageMedium: String = "",
     val date: Int = 0,
     val player: String = ""
-) : Attachment() {
+) : Attachment {
     override val type = AttachmentType.VIDEO
 }
 
@@ -65,7 +65,7 @@ class FileAttachment(
     val ext: String = "",
     val title: String = "",
     val fileType: Int = 0,
-) : Attachment() {
+) : Attachment {
     override val type = AttachmentType.FILE
 }
 
@@ -74,7 +74,7 @@ class GiftAttachment(
     val thumb256: String = "",
     val thumb96: String = "",
     val thumb48: String = "",
-) : Attachment() {
+) : Attachment {
     override val type = AttachmentType.GIFT
 }
 
