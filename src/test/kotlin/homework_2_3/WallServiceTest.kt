@@ -38,4 +38,26 @@ class WallServiceTest {
 
         assertFalse(WallService.update(nonexistentPost))
     }
+
+    @Test
+    fun createCommentSuccessful() {
+        val post = Post(id = 12, comments = Comment(), copyright = Copyright(), likes = Like())
+        WallService.add(post)
+        val comment = Comment()
+
+        WallService.createComment(post.hashCode(), comment)
+
+        assertEquals(1, WallService.getComments().size)
+    }
+
+    @Test
+    fun createCommentFailure() {
+        val post = Post(comments = Comment(), copyright = Copyright(), likes = Like())
+        WallService.add(post)
+        val comment = Comment()
+
+        assertThrows(PostNotFoundException::class.java) {
+            WallService.createComment(0, comment)
+        }
+    }
 }
