@@ -3,10 +3,8 @@ package homework_2_8
 import java.lang.IllegalArgumentException
 
 class User(val id: Int) {
-    private val noteService = NoteService(this)
+    val noteService = NoteService(this)
     private val friendList = mutableListOf<User>()
-
-    fun getNotes(): List<Note> = noteService.get()
 
     fun getFriendList(): List<User> = friendList
 

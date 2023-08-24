@@ -38,7 +38,6 @@ class NoteService(
         val noteIndex = getIndexById(noteId)
 
         noteList.removeAt(noteIndex)
-        TODO("Check exceptions")
     }
 
     fun deleteComment(noteId: Int, commentId: Int) {
@@ -49,9 +48,9 @@ class NoteService(
     }
 
     fun edit(noteId: Int, newText: String) {
+        val editedNote = getById(noteId).copy(text = newText)
         delete(noteId)
 
-        val editedNote = getById(noteId).copy(text = newText)
         noteList += editedNote
     }
 
@@ -73,7 +72,7 @@ class NoteService(
     fun getFriendsNotes(friendId: Int): List<Note> {
         val friend = context.getFriendById(friendId)
 
-        return friend.getNotes()
+        return friend.noteService.get()
     }
 
     fun restoreComment(noteId: Int, deletedCommentId: Int) {
